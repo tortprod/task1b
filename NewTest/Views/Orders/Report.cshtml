@@ -1,0 +1,44 @@
+﻿@model List<string[]>
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Отчет</h2>
+
+<div class="form-horizontal">
+    <h4>Введите дату в формате MM{, . -  }YYYY, чтобы получить отчет за заданный месяц</h4>
+    <hr />
+</div>
+@using (Html.BeginForm())
+{
+    @Html.TextBox("str")
+    <input type="submit" class="btn btn-default" />
+    <br /><br />
+    <table class="table">
+        <tr>
+            <th>
+                <p>Инвентарь</p>
+            </th>
+            <th>
+                <p>Количество</p>
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item[0]
+                </td>
+
+                <td>
+                    @item[1]
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+
